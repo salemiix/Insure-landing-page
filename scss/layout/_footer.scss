@@ -1,0 +1,78 @@
+@use "../util/mixins" as *;
+@use "../util/variables" as *;
+
+.footer {
+    margin-top: 76px;
+    padding: 40px;
+    background-color: $VeryLightGray;
+    position: relative;
+    z-index: 1;
+  
+    &::before {
+      content: "";
+      background-image: url(../../images/bg-pattern-footer-desktop.svg);
+      background-repeat: no-repeat;
+      background-position: top left;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    &__header {
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      @include breakpoint-down(small) {
+        flex-direction: column;
+      }
+  
+      &::after {
+        content: "";
+        position: absolute;
+        background-color: $DarkGrayishViolet;
+        top: 66px;
+        width: 100%;
+        height: 1px;
+        opacity: 0.2;
+        @include breakpoint-down(small) {
+          margin-top: 30px;
+        }
+      }
+  
+      & > * {
+        flex: 1;
+      }
+      ul.social-media {
+        justify-content: flex-end;
+        li {
+          margin-left: 15px;
+        }
+      }
+    }
+  
+    &__menu {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      @include breakpoint-down(small) {
+        grid-template-columns: repeat(1, 1fr);
+        text-align: center;
+      }
+      h3 {
+        margin-top: 40px;
+        opacity: 0.2;
+      }
+      ul {
+        li {
+          margin-bottom: 10px;
+          a {
+            color: $VeryDarkViolet;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }

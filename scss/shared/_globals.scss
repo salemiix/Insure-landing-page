@@ -1,0 +1,98 @@
+@use '../util/mixins' as *;
+@use '../util/variables' as *;
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+  }
+  *,
+  *::after,
+  *::before {
+    box-sizing: inherit;
+  }
+  
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: "Karla", sans-serif;
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+  
+  /* Start Container */
+  .container {
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+  /* Small */
+  @media (min-width: 768px) {
+    .container {
+      width: 750px;
+    }
+  }
+  /* Medium */
+  @media (min-width: 992px) {
+    .container {
+      width: 970px;
+    }
+  }
+  /* Large */
+  @media (min-width: 1200px) {
+    .container {
+      width: 1170px;
+    }
+  }
+  /* End Container*/
+  h1,
+  h2,
+  h3 {
+    font-family: "DM Serif Display", serif;
+    font-weight: 400;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  a {
+    text-decoration: none;
+    white-space: nowrap;
+  
+    font-size: 14px;
+  }
+  .btn {
+    border: 2px solid #fff;
+    padding: 8px 16px;
+    transition: all 0.2s ease-in-out;
+    color: #fff;
+    border-color: #fff;
+    text-transform: uppercase;
+  
+    &:hover {
+      color: $VeryDarkViolet;
+      background-color: #fff;
+    }
+  }
+  .flex {
+    display: flex;
+  }
+  
+  .center {
+    justify-content: center;
+    align-items: center;
+  }
+  
+  // Hide and show helper classes
+  .hide-for-mobile {
+    @include breakpoint-down(medium) {
+      display: none;
+    }
+  }
+  .hide-for-desktop {
+    @include breakpoint-up(large) {
+      display: none;
+    }
+  }
+
